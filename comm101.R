@@ -38,21 +38,20 @@ colnames(woa_sal)
 # Relationships between continuous variables ------------------------------
 
 # P7 Visualize the relationship between salinity and latitude by ocean basin.
-ggplot(woa_sal, aes(x=lattitude, y=salinity, color=ocean)) +
+ggplot(woa_sal, aes(x=latitude, y=salinity, color=ocean)) +
   geom_point()
 
 # P8 Edit your figure from P7 to improve its interpretability in at least one of
 # the following categories: visually differentiating the oceans, appropriateness
 # of the labels, or use of negative space. Save this figure as “comm101p8.png”.
-
-ggplot(woa_sal, aes(x=lattitude, y=salinity, color=ocean)) +
+p <- ggplot(woa_sal, aes(x = latitude, y = salinity, color = ocean)) +
   geom_point() +
   theme_bw() +
-  theme(legend.position = "inside",
-        legend.position.inside = c(0.99, 0.01),
-        legend.justification = c(1,0)) +
-  labs(x= "Lattitude",
-       y= "salinity",
-       fill= "Ocean",
-       shape= "Ocean")
-ggsave("comm101p8.png")
+  theme(legend.position.inside = c(0.99, 0.01),
+        legend.justification = c(1, 0)) +
+  labs(x = "Latitude",
+       y = "Salinity",
+       color = "Ocean")
+
+ggsave("comm101p8.png", plot = p, width = 7, height = 5, dpi = 300)
+
